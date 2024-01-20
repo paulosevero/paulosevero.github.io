@@ -1,11 +1,10 @@
 ---
 layout: page
-title: projects
+title: Projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: This page provides an overview of my RnD, outreach, and teaching initiatives.
 nav: true
 nav_order: 3
-display_categories: [work, fun]
 horizontal: false
 ---
 
@@ -16,7 +15,7 @@ horizontal: false
   {% for category in page.display_categories %}
   <h2 class="category">{{ category }}</h2>
   {% assign categorized_projects = site.projects | where: "category", category %}
-  {% assign sorted_projects = categorized_projects | sort: "importance" %}
+  {% assign sorted_projects = categorized_projects | sort: "order" %}
   <!-- Generate cards for each project -->
   {% if page.horizontal %}
   <div class="container">
@@ -39,7 +38,7 @@ horizontal: false
 
 <!-- Display projects without categories -->
 
-{% assign sorted_projects = site.projects | sort: "importance" %}
+{% assign sorted_projects = site.projects | sort: "order" %}
 
   <!-- Generate cards for each project -->
 
