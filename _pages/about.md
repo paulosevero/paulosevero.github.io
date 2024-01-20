@@ -19,7 +19,6 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-
 Hey, thanks for stopping by! 👋
 
 I’m an Assistant Professor (tenure-track) in the Department of Computer Science at Federal University of Pampa (UNIPAMPA), Brazil.
