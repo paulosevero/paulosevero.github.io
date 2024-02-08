@@ -21,4 +21,4 @@ I’m an Assistant Professor (tenure-track) in the Department of Computer Scienc
 
 As a scientist, I’m broadly interested in all aspects of resource management, and particularly in cloud computing and edge computing.
 
-Previously, I completed my PhD in computer science from the Pontifical Catholic University of Rio Grande do Sul (PUCRS), where I was advised by prof. Tiago Ferreto and prof. Rodrigo Calheiros and worked on maintenance in edge computing infrastructures, supported by a research partnership between PUCRS and Dell.
+Previously, I completed my PhD in computer science from the Pontifical Catholic University of Rio Grande do Sul (PUCRS), where I was advised by prof. Tiago Ferreto and prof. Rodrigo Calheiros.
