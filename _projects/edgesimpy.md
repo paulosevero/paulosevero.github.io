@@ -26,4 +26,4 @@ EdgeSimPy provides a set of unique functional abstractions (e.g., container regi
 
 **While working on the EdgeSimPy project, you will engage in cutting-edge research in modeling and simulation. You will also learn to create simulator extensions and innovative resource management policies.**
 
-> Are you interested in participating in EdgeSimPy project? Drop me an email at [opaulosevero@gmail.com](mailto:opaulosevero@gmail.com) and let's talk!
+> Are you interested in participating in EdgeSimPy project? Drop me an email at [paulosilas@unipampa.edu.br](mailto:paulosilas@unipampa.edu.br) and let's talk!

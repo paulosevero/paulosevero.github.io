@@ -8,10 +8,6 @@ profile:
   align: right
   image: prof-pic.jpg
   image_circular: false # crops the image to make it circular
-  more_info: >
-    <p><small>Federal University of Pampa</small></p>
-    <p><small>Tiaraju Avenue, 810</small></p>
-    <p><small>Alegrete, RS, Brazil</small></p>
 
 news: true # includes a list of news items
 latest_posts: false # includes a list of the newest posts
