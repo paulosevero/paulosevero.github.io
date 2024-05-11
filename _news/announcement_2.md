@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2023-07-03 18:00:00-0300
+date: 2024-04-13 22:30:00-0300
 inline: true
 related_posts: false
 ---
 
-EdgeSimPy paper was published in the Future Generation Computer Systems journal.
+Our maintenance ops review was published in the ACM Computing Surveys journal.
