@@ -1,436 +1,187 @@
-# al-folio
+## Personal Academic Website — Design Brief
 
-<div align="center">
+### Overview
 
-[![Preview](assets/img/readme_preview/al-folio-preview.png)](https://alshedivat.github.io/al-folio/)
-
-**A simple, clean, and responsive [Jekyll](https://jekyllrb.com/) theme for academics.**
+A single-page static website for a Brazilian Computer Science professor, hosted on GitHub Pages. The site must balance academic credibility with modern, refined design. The reference aesthetic is the portfolio of Moritz Oesterlau (moritzoesterlau.de): minimalist, editorial, clean typography, circular photo on the left, text on the right, subtle use of emoji.
 
 ---
 
-[![deploy](https://github.com/alshedivat/al-folio/actions/workflows/deploy.yml/badge.svg)](https://github.com/alshedivat/al-folio/actions/workflows/deploy.yml)
-[![Maintainers](https://img.shields.io/badge/maintainers-4-success.svg)](#maintainers)
-[![GitHub contributors](https://img.shields.io/github/contributors/alshedivat/al-folio.svg)](https://github.com/alshedivat/al-folio/graphs/contributors/)
-[![Docker Image Version](https://img.shields.io/docker/v/amirpourmand/al-folio?sort=semver&label=docker%20image&color=blueviolet)](https://hub.docker.com/r/amirpourmand/al-folio)
-[![Docker Image Size](https://img.shields.io/docker/image-size/amirpourmand/al-folio?sort=date&label=docker%20image%20size&color=blueviolet)](https://hub.docker.com/r/amirpourmand/al-folio)
-[![Docker Pulls](https://img.shields.io/docker/pulls/amirpourmand/al-folio?color=blueviolet)](https://hub.docker.com/r/amirpourmand/al-folio)
+### Content Sections (in order)
 
-[![GitHub release](https://img.shields.io/github/v/release/alshedivat/al-folio)](https://github.com/alshedivat/al-folio/releases/latest)
-[![GitHub license](https://img.shields.io/github/license/alshedivat/al-folio?color=blue)](https://github.com/alshedivat/al-folio/blob/master/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/alshedivat/al-folio)](https://github.com/alshedivat/al-folio)
-[![GitHub forks](https://img.shields.io/github/forks/alshedivat/al-folio)](https://github.com/alshedivat/al-folio/fork)
+**1. Home (Hero)**
+Circular profile photo on the left; text on the right. Content: full name, title, institutional affiliation, a 2–3 sentence bio, a tagline summarizing research areas (Edge–Cloud Continuum, Agentic AI, CS Education), and icon-links to Google Scholar, ORCID, LinkedIn, and GitHub.
 
-</div>
+**2. Research**
+Two columns of project cards. Each card has a status badge (Ongoing / Completed), a project title, and a 2-sentence description. Below the grid, a "Collaboration interests" text block.
 
-## User community
+**3. Publications**
+Grouped by year (descending). Each entry has a type badge (J = Journal, C = Conference), paper title, venue, author list, and inline links (PDF, DOI, Scholar). A note at the bottom explains that Google Scholar direct embedding is not supported in fully static sites; the list is manually maintained. The note links to the author's Google Scholar profile.
 
-The vibrant community of **al-folio** users is growing!
-Academics around the world use this theme for their homepages, blogs, lab pages, as well as webpages for courses, workshops, conferences, meetups, and more.
-Check out the community webpages below.
-Feel free to add your own page(s) by sending a PR.
+**4. Teaching**
+Two-column grid of course cards. Each card shows level (Undergraduate / Graduate), course name, and department code.
 
-<table>
-<tr>
-<td>Academics</td>
-<td>
-<a href="https://martinbulla.github.io" target="_blank">★</a>
-<a href="https://maruan.alshedivat.com" target="_blank">★</a>
-<a href="https://www.cs.columbia.edu/~chen1ru/" target="_blank">★</a>
-<a href="https://maithraraghu.com" target="_blank">★</a>
-<a href="https://platanios.org" target="_blank">★</a>
-<a href="https://otiliastr.github.io" target="_blank">★</a>
-<a href="https://www.maths.dur.ac.uk/~sxwc62/" target="_blank">★</a>
-<a href="https://jessachandler.com/" target="_blank">★</a>
-<a href="https://mayankm96.github.io/" target="_blank">★</a>
-<a href="https://markdean.info/" target="_blank">★</a>
-<a href="https://kakodkar.github.io/" target="_blank">★</a>
-<a href="https://sahirbhatnagar.com/" target="_blank">★</a>
-<a href="https://spd.gr/" target="_blank">★</a>
-<a href="https://jay-sarkar.github.io/" target="_blank">★</a>
-<a href="https://aborowska.github.io/" target="_blank">★</a>
-<a href="https://aditisgh.github.io/" target="_blank">★</a>
-<a href="https://alexhaydock.co.uk/" target="_blank">★</a>
-<a href="https://alixkeener.net/" target="_blank">★</a>
-<a href="https://andreea7b.github.io/" target="_blank">★</a>
-<a href="https://rishabhjoshi.github.io/" target="_blank">★</a>
-<a href="https://sheelabhadra.github.io/" target="_blank">★</a>
-<a href="https://giograno.me/" target="_blank">★</a>
-<a href="https://immsrini.github.io/" target="_blank">★</a>
-<a href="https://apooladian.github.io/" target="_blank">★</a>
-<a href="https://chinmoy-dutta.github.io/" target="_blank">★</a>
-<a href="https://liamcli.com/" target="_blank">★</a>
-<a href="https://yoonholee.com/" target="_blank">★</a>
-<a href="https://zrqiao.github.io/" target="_blank">★</a>
-<a href="https://abstractgeek.github.io/" target="_blank">★</a>
-<a href="https://www.compphys.de/" target="_blank">★</a>
-<a href="https://julianstreyczek.github.io" target="_blank">★</a>
-<a href="https://sdaza.com" target="_blank">★</a>
-<a href="https://niweera.gq" target="_blank">★</a>
-<a href="https://www.alihkw.com" target="_blank">★</a>
-<a href="https://amirpourmand.ir" target="_blank">★</a>
-<a href="https://scottleechua.github.io" target="_blank">★</a>
-<a href="https://sk1y101.github.io" target="_blank">★</a>
-<a href="https://yyang768osu.github.io" target="_blank">★</a>
-<a href="https://veedata.github.io" target="_blank">★</a>
-<a href="https://K-Wu.github.io" target="_blank">★</a>
-<a href="https://amalawilson.com" target="_blank">★</a>
-<a href="https://tirtharajdash.github.io" target="_blank">★</a>
-<a href="https://carolinacarreira.github.io" target="_blank">★</a>
-<a href="https://manandey.github.io" target="_blank">★</a>
-<a href="https://johanneshoerner.github.io" target="_blank">★</a>
-<a href="https://ioannismavromatis.com" target="_blank">★</a>
-<a href="https://taidnguyen.github.io" target="_blank">★</a>
-<a href="https://lbugnon.github.io" target="_blank">★</a>
-<a href="https://joahannes.github.io" target="_blank">★</a>
-<a href="https://dominikstrb.github.io" target="_blank">★</a>
-<a href="https://tylerbarna.com" target="_blank">★</a>
-<a href="https://daviddmc.github.io/" target="_blank">★</a>
-<a href="https://andreaskuster.ch/" target="_blank">★</a>
-<a href="https://ellisbrown.github.io/" target="_blank">★</a>
-<a href="https://noman-bashir.github.io/" target="_blank">★</a>
-<a href="https://djherron.github.io/" target="_blank">★</a>
-<a href="https://rodosingh.github.io/" target="_blank">★</a>
-<a href="https://vdivakar.github.io/" target="_blank">★</a>
-<a href="https://george-gca.github.io/" target="_blank">★</a>
-<a href="https://bashirkazimi.github.io/" target="_blank">★</a>
-<a href="https://dohaison.github.io/" target="_blank">★</a>
-<a href="https://raphaaal.github.io/" target="_blank">★</a>
-<a href="https://varuniyer.info/" target="_blank">★</a>
-<a href="https://yukimasano.github.io/" target="_blank">★</a>
-<a href="https://hashe037.github.io/" target="_blank">★</a>
-<a href="https://wang-boyu.github.io/" target="_blank">★</a>
-<a href="https://qingqingchen.info" target="_blank">★</a>
-<a href="https://bajinsheng.github.io/" target="_blank">★</a>
-<a href="https://www.silviofanzon.com/" target="_blank">★</a>
-<a href="https://kaikaiyao.github.io/" target="_blank">★</a>
-<a href="https://alchemz.github.io/" target="_blank">★</a>
-<a href="https://samadamday.com/" target="_blank">★</a>
-<a href="https://fanpu.io/" target="_blank">★</a>
-<a href="https://abigalekim.github.io/" target="_blank">★</a>
-<a href="https://lucasresck.github.io/" target="_blank">★</a>
-<a href="https://users.wpi.edu/~lfichera/" target="_blank">★</a>
-<a href="https://anmspro.github.io/" target="_blank">★</a>
-<a href="https://berlyne.net/" target="_blank">★</a>
-<a href="https://filippomazzoli.github.io/" target="_blank">★</a>
-<a href="https://www.escontrela.me/" target="_blank">★</a>
-<a href="https://raffaem.github.io/" target="_blank">★</a>
-<a href="https://cbueth.de/" target="_blank">★</a>
-<a href="https://kyleaoman.github.io/" target="_blank">★</a>
-<a href="https://decwest.github.io/" target="_blank">★</a>
-<a href="https://www.jedburkat.com" target="_blank">★</a>
-<a href="https://hrzhang.me" target="_blank">★</a>
-<a href="https://kudhru.github.io/" target="_blank">★</a>
-<a href="https://mbarbetti.github.io/" target="_blank">★</a>
-<a href="https://www.zhivotenko.com/" target="_blank">★</a>
-<a href="https://giordanodaloisio.github.io/" target="_blank">★</a>
-<a href="https://aadityaura.github.io/" target="_blank">★</a>
-<a href="https://abhinav-mehta.github.io/" target="_blank">★</a>
-<a href="https://shubhashisroydipta.com/" target="_blank">★</a>
-<a href="https://astanziola.github.io" target="_blank">★</a>
-<a href="https://tinkerer.in" target="_blank">★</a>
-<a href="https://sam-bieberich.github.io/" target="_blank">★</a>
-<a href="https://afraniomelo.github.io/en/" target="_blank">★</a>
-</td>
-</tr>
-<tr>
-<td>Labs</td>
-<td>
-<a href="https://www.haylab.caltech.edu/" target="_blank">★</a>
-<a href="https://sjkimlab.github.io/" target="_blank">★</a>
-<a href="https://systemconsultantgroup.github.io/scg-folio/" target="_blank">★</a>
-<a href="https://decisionlab.ucsf.edu/" target="_blank">★</a>
-<a href="https://programming-group.com/" target="_blank">★</a>
-<a href="https://sailing-lab.github.io/" target="_blank">★</a>
-<a href="https://inbt.jhu.edu/epidiagnostics/" target="_blank">★</a>
-</td>
-</tr>
-<tr>
-<td>Courses</td>
-<td>
-CMU PGM (<a href="https://sailinglab.github.io/pgm-spring-2019/" target="_blank">S-19</a>) <br>
-CMU DeepRL (<a href="https://cmudeeprl.github.io/703website_f19/" target="_blank">F-19</a>, <a href="https://cmudeeprl.github.io/Spring202010403website/" target="_blank">S-20</a>, <a href="https://cmudeeprl.github.io/703website/" target="_blank">F-20</a>, <a href="https://cmudeeprl.github.io/403_website/" target="_blank">S-21</a>, <a href="https://cmudeeprl.github.io/703website_f21/" target="_blank">F-21</a>, <a href="https://cmudeeprl.github.io/403website_s22/" target="_blank">S-22</a>) <br>
-CMU MMML (<a href="https://cmu-multicomp-lab.github.io/mmml-course/fall2020/" target="_blank">F-20</a>, <a href="https://cmu-multicomp-lab.github.io/mmml-course/fall2022/" target="_blank">F-22</a>) <br>
-CMU AMMML (<a href="https://cmu-multicomp-lab.github.io/adv-mmml-course/spring2022/" target="_blank">S-22</a>, <a href="https://cmu-multicomp-lab.github.io/adv-mmml-course/spring2023/" target="_blank">S-23</a>) <br>
-CMU ASI (<a href="https://cmu-multicomp-lab.github.io/asi-course/spring2023/" target="_blank">S-23</a>) <br>
-CMU Distributed Systems (<a href="https://andrew.cmu.edu/course/15-440/" target="_blank">S-21</a>)
-</td>
-</tr>
-<tr>
-<td>Conferences & workshops</td>
-<td>
-ICLR Blog Post Track (<a href="https://iclr-blogposts.github.io/2023/" target="_blank">2023</a>, <a href="https://iclr-blogposts.github.io/2024/about" target="_blank">2024</a>) <br>
-ML Retrospectives (NeurIPS: <a href="https://ml-retrospectives.github.io/neurips2019/" target="_blank">2019</a>, <a href="https://ml-retrospectives.github.io/neurips2020/" target="_blank">2020</a>; ICML: <a href="https://ml-retrospectives.github.io/icml2020/" target="_blank">2020</a>) <br>
-HAMLETS (NeurIPS: <a href="https://hamlets-workshop.github.io/" target="_blank">2020</a>) <br>
-ICBINB (NeurIPS: <a href="https://i-cant-believe-its-not-better.github.io/" target="_blank">2020</a>, <a href="https://i-cant-believe-its-not-better.github.io/neurips2021/" target="_blank">2021</a>) <br>
-Neural Compression (ICLR: <a href="https://neuralcompression.github.io/" target="_blank">2021</a>) <br>
-Score Based Methods (NeurIPS: <a href="https://score-based-methods-workshop.github.io/" target="_blank">2022</a>)<br>
-Images2Symbols (CogSci: <a href="https://images2symbols.github.io/" target="_blank"> 2022</a>) <br>
-Medical Robotics Junior Faculty Forum (ISMR: <a href="https://junior-forum-ismr.github.io/" target="_blank"> 2023</a>)<br>
-Beyond Vision: Physics meets AI (ICIAP: <a href="https://physicsmeetsai.github.io/beyond-vision/" target="_blank">2023</a>) <br>
-Workshop on Diffusion Models (NeurIPS: <a href="https://diffusionworkshop.github.io/" target="_blank">2023</a>)
-</td>
-</tr>
-</table>
+**5. Students**
+Two groups: Current Students and Alumni. Each entry shows a colored dot (green = active, gray = alumni), student name, degree level (BSc / MSc / PhD), and research topic. Alumni entries also show graduation year.
 
-## Lighthouse PageSpeed Insights
+**6. Resources**
+Vertical list of clickable cards linking to GitHub repositories and tools. Each card has an icon, tool name, and a one-sentence description.
 
-[![Google PageSpeed](https://raw.githubusercontent.com/alshedivat/al-folio/master/assets/img/pagespeed.svg)](https://pagespeed.web.dev/report?url=https%3A%2F%2Falshedivat.github.io%2Fal-folio%2F&form_factor=desktop)
+**7. Contact**
+A contained card with email (institutional), office room, building, campus, and full university address.
 
-## Table Of Contents
-
-- [al-folio](#al-folio)
-  - [User community](#user-community)
-  - [Lighthouse PageSpeed Insights](#lighthouse-pagespeed-insights)
-  - [Table Of Contents](#table-of-contents)
-  - [Getting started](#getting-started)
-  - [Installing](#installing)
-  - [Customizing](#customizing)
-  - [Features](#features)
-    - [Light/Dark Mode](#lightdark-mode)
-    - [CV](#cv)
-    - [People](#people)
-    - [Publications](#publications)
-    - [Collections](#collections)
-    - [Layouts](#layouts)
-      - [The iconic style of Distill](#the-iconic-style-of-distill)
-      - [Full support for math \& code](#full-support-for-math--code)
-      - [Photos, Audio, Video and more](#photos-audio-video-and-more)
-    - [Other features](#other-features)
-      - [GitHub's repositories and user stats](#githubs-repositories-and-user-stats)
-      - [Theming](#theming)
-      - [Social media previews](#social-media-previews)
-      - [Atom (RSS-like) Feed](#atom-rss-like-feed)
-      - [Related posts](#related-posts)
-      - [Code quality checks](#code-quality-checks)
-  - [FAQ](#faq)
-  - [Contributing](#contributing)
-    - [Maintainers](#maintainers)
-    - [All Contributors](#all-contributors)
-  - [Star History](#star-history)
-  - [License](#license)
-
-## Getting started
-
-Want to learn more about Jekyll? Check out [this tutorial](https://www.taniarascia.com/make-a-static-website-with-jekyll/). Why Jekyll? Read [Andrej Karpathy's blog post](https://karpathy.github.io/2014/07/01/switching-to-jekyll/)!
-
-## Installing
-
-For installation details please refer to [INSTALL.md](INSTALL.md).
-
-## Customizing
-
-For customization details please refer to [CUSTOMIZE.md](CUSTOMIZE.md).
-
-## Features
-
-### Light/Dark Mode
-
-This template has a built-in light/dark mode. It detects the user preferred color scheme and automatically switches to it. You can also manually switch between light and dark mode by clicking on the sun/moon icon in the top right corner of the page.
-
-<p align="center">
-<img src="assets/img/readme_preview/light.png" width=400>
-<img src="assets/img/readme_preview/dark.png" width=400>
-</p>
+**Footer**
+Copyright line and "Built with HTML/CSS · Hosted on GitHub Pages."
 
 ---
 
-### CV
+### Functional Requirements
 
-There are currently 2 different ways of generating the CV page content. The first one is by using a json file located in [assets/json/resume.json](assets/json/resume.json). It is a [known standard](https://jsonresume.org/) for creating a CV programmatically. The second one, currently used as a fallback when the json file is not found, is by using a yml file located in [\_data/cv.yml](_data/cv.yml). This was the original way of creating the CV page content and since it is more human readable than a json file we decided to keep it as an option.
-
-What this means is, if there is no resume data defined in [\_config.yml](_config.yml) and loaded via a json file, it will load the contents of [\_data/cv.yml](_data/cv.yml) as fallback.
-
-[![CV Preview](assets/img/readme_preview/cv.png)](https://alshedivat.github.io/al-folio/cv/)
-
----
-
-### People
-
-You can create a people page if you want to feature more than one person. Each person can have its own short bio, profile picture, and you can also set if every person will appear at the same or opposite sides.
-
-[![People Preview](assets/img/readme_preview/people.png)](https://alshedivat.github.io/al-folio/people/)
+| Feature         | Specification                                                                                      |
+| --------------- | -------------------------------------------------------------------------------------------------- |
+| Architecture    | Single-page; all sections on one HTML file                                                         |
+| Navigation      | Fixed top navbar; smooth scroll to sections; active section highlighted                            |
+| Bilingual       | EN-US (primary) and PT-BR toggle; all visible text must switch                                     |
+| Responsive      | Desktop, tablet, and mobile (navbar collapses on mobile)                                           |
+| Light/Dark mode | Toggle button; full theme switch with no visual bugs (no white text on white background, no flash) |
+| Hosting         | GitHub Pages; no build step; pure HTML + CSS + vanilla JS                                          |
 
 ---
 
-### Publications
+### Typography
 
-Your publications' page is generated automatically from your BibTex bibliography. Simply edit [\_bibliography/papers.bib](_bibliography/papers.bib). You can also add new `*.bib` files and customize the look of your publications however you like by editing [\_pages/publications.md](_pages/publications.md). By default, the publications will be sorted by year and the most recent will be displayed first. You can change this behavior and more in the `Jekyll Scholar` section in [\_config.yml](_config.yml) file.
+**Problem with previous version:** Generic serif (Georgia) felt dated and low-effort.
 
-You can add extra information to a publication, like a PDF file in the [assets/pdf/](assets/pdf/) directory and add the path to the PDF file in the BibTeX entry with the `pdf` field. Some of the supported fields are: `abstract`, `altmetric`, `arxiv`, `bibtex_show`, `blog`, `code`, `dimensions`, `doi`, `eprint`, `html`, `isbn`, `pdf`, `pmid`, `poster`, `slides`, `supp`, `video`, and `website`.
+**Direction:** A modern, elegant, slightly editorial type pairing. Suggestions:
 
-[![Publications Preview](assets/img/readme_preview/publications.png)](https://alshedivat.github.io/al-folio/publications/)
+- Display / headings: **Fraunces** (Google Fonts) — optical-size variable font, warm, sophisticated; or **Cormorant Garamond** for a more classical feel.
+- Body: **DM Sans** or **Plus Jakarta Sans** — geometric, clean, highly legible at small sizes.
+- Monospace (code snippets, badges): **JetBrains Mono** or **IBM Plex Mono**.
 
----
-
-### Collections
-
-This Jekyll theme implements `collections` to let you break up your work into categories. The theme comes with two default collections: `news` and `projects`. Items from the `news` collection are automatically displayed on the home page. Items from the `projects` collection are displayed on a responsive grid on projects page.
-
-[![Projects Preview](assets/img/readme_preview/projects.png)](https://alshedivat.github.io/al-folio/projects/)
-
-You can easily create your own collections, apps, short stories, courses, or whatever your creative work is. To do this, edit the collections in the [\_config.yml](_config.yml) file, create a corresponding folder, and create a landing page for your collection, similar to `_pages/projects.md`.
+All fonts via Google Fonts CDN. No system fonts (Arial, Georgia, Times New Roman) anywhere on the page.
 
 ---
 
-### Layouts
+### Color Palette
 
-**al-folio** comes with stylish layouts for pages and blog posts.
+**Light mode**
 
-#### The iconic style of Distill
+| Role                       | Value                      |
+| -------------------------- | -------------------------- |
+| Page background            | `#F7F6F3` (warm off-white) |
+| Surface / cards            | `#FFFFFF`                  |
+| Subtle surface             | `#EFEFEB`                  |
+| Primary text               | `#181715`                  |
+| Secondary text             | `#5C5A55`                  |
+| Tertiary / muted           | `#9A9890`                  |
+| Borders                    | `rgba(0,0,0,0.08)`         |
+| Accent (links, active nav) | `#181715`                  |
+| Status — ongoing           | `#2E7D32` on `#E8F5E9`     |
+| Status — completed         | `#5C5A55` on `#EFEFEB`     |
 
-The theme allows you to create blog posts in the [distill.pub](https://distill.pub/) style:
+**Dark mode**
 
-[![Distill Preview](assets/img/readme_preview/distill.png)](https://alshedivat.github.io/al-folio/blog/2021/distill/)
+| Role               | Value                    |
+| ------------------ | ------------------------ |
+| Page background    | `#111110`                |
+| Surface / cards    | `#1C1B19`                |
+| Subtle surface     | `#242320`                |
+| Primary text       | `#EDEBE6`                |
+| Secondary text     | `#A8A49E`                |
+| Tertiary / muted   | `#6B6762`                |
+| Borders            | `rgba(255,255,255,0.08)` |
+| Accent             | `#EDEBE6`                |
+| Status — ongoing   | `#81C784` on `#1B3A1C`   |
+| Status — completed | `#A8A49E` on `#242320`   |
 
-For more details on how to create distill-styled posts using `<d-*>` tags, please refer to [the example](https://alshedivat.github.io/al-folio/blog/2021/distill/).
-
-#### Full support for math & code
-
-**al-folio** supports fast math typesetting through [MathJax](https://www.mathjax.org/) and code syntax highlighting using [GitHub style](https://github.com/jwarby/jekyll-pygments-themes). Also supports [mermaid diagrams](https://mermaid-js.github.io/mermaid/#/) and [TikZ figures](https://tikzjax.com/).
-
-<p align="center">
-<a href="https://alshedivat.github.io/al-folio/blog/2015/math/" target="_blank"><img src="assets/img/readme_preview/math.png" width=400></a>
-<a href="https://alshedivat.github.io/al-folio/blog/2015/code/" target="_blank"><img src="assets/img/readme_preview/code.png" width=400></a>
-</p>
-
-#### Photos, Audio, Video and more
-
-Photo formatting is made simple using [Bootstrap's grid system](https://getbootstrap.com/docs/4.4/layout/grid/). Easily create beautiful grids within your blog posts and project pages, also with support for [video](https://alshedivat.github.io/al-folio/blog/2023/videos/) and [audio](https://alshedivat.github.io/al-folio/blog/2023/audios/) embeds:
-
-<p align="center">
-  <a href="https://alshedivat.github.io/al-folio/projects/1_project/">
-    <img src="assets/img/readme_preview/photos-screenshot.png" width="75%">
-  </a>
-</p>
+**Critical dark mode rule:** Every color must be defined as a CSS custom property (`--color-*`). Zero hardcoded hex values in component CSS. The theme switch must be instant and bug-free — achieved by toggling a `data-theme` attribute on `<html>` and defining all variables under `[data-theme="dark"]`.
 
 ---
 
-### Other features
+### Spacing & Layout
 
-#### GitHub's repositories and user stats
+- Max content width: `860px`, centered.
+- Section vertical padding: `6rem 0` (desktop), `3.5rem 0` (mobile).
+- Navbar height: `64px`. Content below hero must clear the sticky navbar.
+- Hero: photo `160px` diameter; gap between photo and text `3rem`; bottom margin before first section `2rem`.
+- **Hero–navbar gap problem (from previous version):** The hero section felt cramped under the navbar. Fix: add `padding-top: 5rem` to the hero section to create explicit breathing room between the navbar and the profile content.
+- Card internal padding: `1.25rem 1.5rem`.
+- Grid gap: `1rem` (cards), `0.75rem` (course items).
+- Border radius: `8px` (cards, buttons), `50%` (photo), `4px` (badges/tags).
+- All borders: `0.5px solid` using the border color variables above.
 
-**al-folio** uses [github-readme-stats](https://github.com/anuraghazra/github-readme-stats) and [github-profile-trophy](https://github.com/ryo-ma/github-profile-trophy) to display GitHub repositories and user stats on the `/repositories/` page.
+---
 
-[![Repositories Preview](assets/img/readme_preview/repositories.png)](https://alshedivat.github.io/al-folio/repositories/)
+### Buttons & Interactive Elements
 
-Edit the `_data/repositories.yml` and change the `github_users` and `github_repos` lists to include your own GitHub profile and repositories to the `/repositories/` page.
+**Problem with previous version:** Buttons were plain and visually uninteresting — simple bordered rectangles with no personality.
 
-You may also use the following codes for displaying this in any other pages.
+**Direction:** Buttons should feel tactile and refined. Specific treatments:
 
-```html
-<!-- code for GitHub users -->
-{% if site.data.repositories.github_users %}
-<div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-  {% for user in site.data.repositories.github_users %} {% include repository/repo_user.liquid username=user %} {% endfor %}
-</div>
-{% endif %}
+- **Language toggle (EN / PT):** Pill-shaped toggle switch, not two separate buttons. Active language has a filled background; inactive is ghost. Smooth transition on switch.
+- **Theme toggle (Light / Dark):** Icon-only button (sun ☀ / moon ☾ SVG icons, not emoji). No label text. Circular button, `36px` diameter, subtle border.
+- **Social links (Scholar, ORCID, LinkedIn, GitHub):** Horizontal row of pill buttons. Each has a small SVG icon on the left and a text label. On hover: background fills to `--color-subtle`, border darkens, slight upward translate (`translateY(-1px)`). No underline.
+- **Publication links (PDF, DOI, Scholar):** Small inline pill tags. Font size `11px`. On hover: background and border transition smoothly. Should not look like hyperlinks — they should look like tags/chips.
+- **All hover states:** Use `transition: all 0.18s ease` consistently. No abrupt changes.
 
-<!-- code for GitHub trophies -->
-{% if site.repo_trophies.enabled %} {% for user in site.data.repositories.github_users %} {% if site.data.repositories.github_users.size > 1 %}
-<h4>{{ user }}</h4>
-{% endif %}
-<div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-  {% include repository/repo_trophies.liquid username=user %}
-</div>
-{% endfor %} {% endif %}
+---
 
-<!-- code for GitHub repositories -->
-{% if site.data.repositories.github_repos %}
-<div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-  {% for repo in site.data.repositories.github_repos %} {% include repository/repo.liquid repository=repo %} {% endfor %}
-</div>
-{% endif %}
+### Animations
+
+**Problem with previous version:** Animations were either absent or simplistic — scroll-triggered highlighting only.
+
+**Direction:** Subtle, purposeful motion that feels fluid and premium, not decorative. All animations must respect `prefers-reduced-motion`.
+
+Specific animations to implement:
+
+1. **Page load — staggered reveal:** Each section fades in and slides up `16px` on page load. Stagger delay increases by `80ms` per section. Use CSS `@keyframes` with `animation-delay`. Duration: `500ms`, easing: `cubic-bezier(0.16, 1, 0.3, 1)` (expo-out).
+
+2. **Navbar — scroll appearance:** On page load, navbar is fully transparent with no border. After scrolling `40px`, it transitions to the frosted-glass state (`backdrop-filter: blur(10px)` + background opacity). Duration: `300ms ease`.
+
+3. **Card hover:** Cards lift slightly (`translateY(-2px)`) and border darkens on hover. Duration: `180ms ease-out`. No box-shadow (conflicts with flat design direction).
+
+4. **Section scroll reveal:** Use `IntersectionObserver`. Elements (cards, list items, pub entries) animate in with `opacity: 0 → 1` and `translateY(12px → 0)` as they enter the viewport. Stagger children by `60ms`. This replaces the simplistic "everything loads at once" behavior.
+
+5. **Theme toggle:** Color transitions use `transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease` on all elements. No flash. The transition must feel like a smooth temperature shift, not a hard switch.
+
+6. **Language switch:** Text content swaps with a brief `opacity: 0 → 1` crossfade (`150ms ease`). Prevents jarring content jump.
+
+7. **Active nav indicator:** The underline indicator slides horizontally between nav items on hover/scroll using a `::after` pseudo-element with `transition: left/width 0.2s ease`.
+
+---
+
+### Navigation
+
+- Fixed top, full width.
+- Left: author name (display font, `15px`).
+- Center: nav links (sans-serif, `13px`, uppercase, letter-spacing `0.06em`). Active link: full-opacity + animated underline. Inactive: `60%` opacity.
+- Right: language toggle (pill) + theme toggle (icon button).
+- On mobile (`< 700px`): center and right collapse into a hamburger menu. Nav links appear as a full-width dropdown with `backdrop-filter`.
+
+---
+
+### Known Issues to Fix (from previous prototype)
+
+1. **White text on white background in dark mode** — caused by hardcoded colors not covered by the theme variables. Fix: audit every CSS rule; zero hardcoded colors.
+2. **Status badges in dark mode** — green-on-light-green became unreadable. Fix: define separate dark-mode values for badge background and text.
+3. **Publication type badges (J/C)** — same issue. Define explicit dark-mode colors.
+4. **Navbar active state** — the `border-bottom` highlight disappeared in dark mode. Fix: use `border-bottom-color: var(--color-text-primary)`.
+5. **Hero section cramped under navbar** — see spacing section above.
+
+---
+
+### File Structure (for GitHub Pages)
+
+```
+/
+├── index.html       ← single file with all HTML, CSS (in <style>), and JS (in <script>)
+├── photo.jpg        ← profile photo (replace the placeholder avatar)
+└── README.md
 ```
 
----
-
-#### Theming
-
-A variety of beautiful theme colors have been selected for you to choose from. The default is purple, but you can quickly change it by editing the `--global-theme-color` variable in the `_sass/_themes.scss` file. Other color variables are listed there as well. The stock theme color options available can be found at [\_sass/\_variables.scss](_sass/_variables.scss). You can also add your own colors to this file assigning each a name for ease of use across the template.
+No build tools, no frameworks, no npm. Pure HTML/CSS/JS. All fonts loaded from Google Fonts CDN. The entire site must work by opening `index.html` directly in a browser.
 
 ---
 
-#### Social media previews
+### Tone & Reference
 
-**al-folio** supports preview images on social media. To enable this functionality you will need to set `serve_og_meta` to `true` in your [\_config.yml](_config.yml). Once you have done so, all your site's pages will include Open Graph data in the HTML head element.
-
-You will then need to configure what image to display in your site's social media previews. This can be configured on a per-page basis, by setting the `og_image` page variable. If for an individual page this variable is not set, then the theme will fall back to a site-wide `og_image` variable, configurable in your [\_config.yml](_config.yml). In both the page-specific and site-wide cases, the `og_image` variable needs to hold the URL for the image you wish to display in social media previews.
-
----
-
-#### Atom (RSS-like) Feed
-
-It generates an Atom (RSS-like) feed of your posts, useful for Atom and RSS readers. The feed is reachable simply by typing after your homepage `/feed.xml`. E.g. assuming your website mountpoint is the main folder, you can type `yourusername.github.io/feed.xml`
-
----
-
-#### Related posts
-
-By default, there will be a related posts section on the bottom of the blog posts. These are generated by selecting the `max_related` most recent posts that share at least `min_common_tags` tags with the current post. If you do not want to display related posts on a specific post, simply add `related_posts: false` to the front matter of the post. If you want to disable it for all posts, simply set `enabled` to false in the `related_blog_posts` section in [\_config.yml](_config.yml).
-
----
-
-#### Code quality checks
-
-Currently, we run some checks to ensure that the code quality and generated site are good. The checks are done using GitHub Actions and the following tools:
-
-- [Prettier](https://prettier.io/) - check if the formatting of the code follows the style guide
-- [lychee](https://lychee.cli.rs/) - check for broken links
-- [Axe](https://github.com/dequelabs/axe-core) (need to run manually) - do some accessibility testing
-
-We decided to keep `Axe` runs manual because fixing the issues are not straightforward and might be hard for people without web development knowledge.
-
-## FAQ
-
-For frequently asked questions, please refer to [FAQ.md](FAQ.md).
-
-## Contributing
-
-Contributions to al-folio are very welcome! Before you get started, please take a look at [the guidelines](CONTRIBUTING.md).
-
-If you would like to improve documentation or fix a minor inconsistency or bug, please feel free to send a PR directly to `master`. For more complex issues/bugs or feature requests, please open an issue using the appropriate template.
-
-### Maintainers
-
-Our most active contributors are welcome to join the maintainers team. If you are interested, please reach out!
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="top" width="14.28%"><a href="http://maruan.alshedivat.com"><img src="https://avatars.githubusercontent.com/u/2126561?v=4" width="100px;" alt=""/><br /><sub><b>Maruan</b></sub></a></td>
-      <td align="center" valign="top" width="14.28%"><a href="http://rohandebsarkar.github.io"><img src="https://avatars.githubusercontent.com/u/50144004?v=4" width="100px;" alt=""/><br /><sub><b>Rohan Deb Sarkar</b></sub></a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://amirpourmand.ir"><img src="https://avatars.githubusercontent.com/u/32064808?v=4" width="100px;" alt=""/><br /><sub><b>Amir Pourmand</b></sub></a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://george-gca.github.io/"><img src="https://avatars.githubusercontent.com/u/31376482?v=4" width="100px;" alt=""/><br /><sub><b>George</b></sub></a></td>
-    </tr>
-  </tbody>
-</table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-### All Contributors
-
-<a href="https://contrib.rocks">
-  <img src="https://contrib.rocks/image?repo=alshedivat/al-folio" />
-</a>
-
-## Star History
-
-<a href="https://star-history.com/#alshedivat/al-folio&Date">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=alshedivat/al-folio&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=alshedivat/al-folio&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=alshedivat/al-folio&type=Date" />
-  </picture>
-</a>
-
-## License
-
-The theme is available as open source under the terms of the [MIT License](https://github.com/alshedivat/al-folio/blob/master/LICENSE).
-
-Originally, **al-folio** was based on the [\*folio theme](https://github.com/bogoli/-folio) (published by [Lia Bogoev](https://liabogoev.com) and under the MIT license). Since then, it got a full re-write of the styles and many additional cool features.
+The site should feel like the personal page of a serious researcher who also cares about craft. Not a corporate page. Not a university template. Clean, modern, a little warm. Similar in spirit to: Moritz Oesterlau's portfolio, Fabian Schultz's site, and the academic pages of researchers at top systems groups (MIT CSAIL, CMU PDL, EPFL LABOS).

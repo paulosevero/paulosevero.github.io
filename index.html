@@ -1,0 +1,2301 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paulo Silas Severo de Souza</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        var t = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", t);
+      })();
+    </script>
+    <style>
+      /* ── CSS CUSTOM PROPERTIES ─────────────────────────────── */
+      :root {
+        --color-bg: #f7f6f3;
+        --color-surface: #ffffff;
+        --color-subtle: #efefeb;
+        --color-text-primary: #181715;
+        --color-text-secondary: #5c5a55;
+        --color-text-muted: #9a9890;
+        --color-border: rgba(0, 0, 0, 0.08);
+        --color-accent: #181715;
+        --color-status-ongoing-text: #2e7d32;
+        --color-status-ongoing-bg: #e8f5e9;
+        --color-status-done-text: #5c5a55;
+        --color-status-done-bg: #efefeb;
+        --color-badge-j-text: #1565c0;
+        --color-badge-j-bg: #e3f2fd;
+        --color-badge-c-text: #6a1b9a;
+        --color-badge-c-bg: #f3e5f5;
+        --color-navbar-bg: rgba(247, 246, 243, 0.88);
+        --color-dot-active: #2e7d32;
+        --color-dot-alumni: #9a9890;
+
+        --font-display: "Fraunces", Georgia, serif;
+        --font-body: "DM Sans", system-ui, sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+
+        --max-width: 860px;
+        --nav-height: 64px;
+        --r-card: 8px;
+        --r-badge: 4px;
+        --r-pill: 999px;
+        --transition-theme: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+      }
+
+      [data-theme="dark"] {
+        --color-bg: #111110;
+        --color-surface: #1c1b19;
+        --color-subtle: #242320;
+        --color-text-primary: #edebe6;
+        --color-text-secondary: #a8a49e;
+        --color-text-muted: #6b6762;
+        --color-border: rgba(255, 255, 255, 0.08);
+        --color-accent: #edebe6;
+        --color-status-ongoing-text: #81c784;
+        --color-status-ongoing-bg: #1b3a1c;
+        --color-status-done-text: #a8a49e;
+        --color-status-done-bg: #242320;
+        --color-badge-j-text: #90caf9;
+        --color-badge-j-bg: #0d2137;
+        --color-badge-c-text: #ce93d8;
+        --color-badge-c-bg: #2d1b4e;
+        --color-navbar-bg: rgba(17, 17, 16, 0.88);
+        --color-dot-active: #81c784;
+        --color-dot-alumni: #6b6762;
+      }
+
+      /* ── RESET ─────────────────────────────────────────────── */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--color-bg);
+        color: var(--color-text-primary);
+        font-family: var(--font-body);
+        font-size: 15px;
+        line-height: 1.65;
+        transition: var(--transition-theme);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        display: block;
+      }
+
+      h2 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(1.6rem, 3vw, 2rem);
+        letter-spacing: -0.02em;
+        margin-bottom: 2rem;
+        color: var(--color-text-primary);
+      }
+
+      /* ── LAYOUT ─────────────────────────────────────────────── */
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      section {
+        padding: 6rem 0;
+        border-top: 0.5px solid var(--color-border);
+        transition: var(--transition-theme);
+      }
+
+      /* ── LANGUAGE VISIBILITY ────────────────────────────────── */
+      [data-en],
+      [data-pt] {
+        display: none;
+      }
+      body [data-en] {
+        display: inline;
+      }
+      body.pt [data-en] {
+        display: none;
+      }
+      body.pt [data-pt] {
+        display: inline;
+      }
+
+      [data-en-b],
+      [data-pt-b] {
+        display: none;
+      }
+      body [data-en-b] {
+        display: block;
+      }
+      body.pt [data-en-b] {
+        display: none;
+      }
+      body.pt [data-pt-b] {
+        display: block;
+      }
+
+      /* ── NAVBAR ─────────────────────────────────────────────── */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: var(--nav-height);
+        z-index: 100;
+        transition:
+          background-color 0.3s ease,
+          backdrop-filter 0.3s ease,
+          border-color 0.3s ease;
+        border-bottom: 0.5px solid transparent;
+      }
+      .nav.scrolled {
+        background-color: var(--color-navbar-bg);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom-color: var(--color-border);
+      }
+      .nav-inner {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      .nav-brand {
+        font-family: var(--font-display);
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--color-text-primary);
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: var(--transition-theme);
+        height: var(--nav-height);
+        display: flex;
+        align-items: center;
+      }
+      .nav-links {
+        display: flex;
+        list-style: none;
+        flex: 1;
+        justify-content: center;
+        transform: translateY(11px);
+      }
+      .nav-links a {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--color-text-primary);
+        opacity: 0.5;
+        padding: 0.5rem 0.7rem;
+        position: relative;
+        transition: opacity 0.18s ease;
+        line-height: 1;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0.7rem;
+        right: 0.7rem;
+        height: 1px;
+        background: var(--color-text-primary);
+        transform: scaleX(0);
+        transition: transform 0.2s ease;
+      }
+      .nav-links a:hover {
+        opacity: 1;
+      }
+      .nav-links a.active {
+        opacity: 1;
+      }
+      .nav-links a.active::after {
+        transform: scaleX(1);
+      }
+
+      .nav-controls {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-shrink: 0;
+      }
+
+      .lang-pill {
+        display: flex;
+        background: var(--color-subtle);
+        border: 0.5px solid var(--color-border);
+        border-radius: var(--r-pill);
+        padding: 2px;
+        gap: 2px;
+        transition: var(--transition-theme);
+      }
+      .lang-pill button {
+        font-family: var(--font-body);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        padding: 4px 10px;
+        border-radius: var(--r-pill);
+        border: none;
+        cursor: pointer;
+        background: transparent;
+        color: var(--color-text-muted);
+        transition:
+          background-color 0.18s ease,
+          color 0.18s ease;
+      }
+      .lang-pill button.on {
+        background: var(--color-surface);
+        color: var(--color-text-primary);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      }
+
+      .icon-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 0.5px solid var(--color-border);
+        background: transparent;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-text-secondary);
+        transition:
+          background-color 0.18s ease,
+          border-color 0.18s ease;
+      }
+      .icon-btn:hover {
+        background: var(--color-subtle);
+      }
+      .icon-btn svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .hamburger {
+        display: none;
+      }
+      .hamburger svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      /* Mobile nav */
+      .mobile-nav {
+        display: none;
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        background: var(--color-navbar-bg);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 0.5px solid var(--color-border);
+        z-index: 99;
+        padding: 1rem 1.5rem;
+      }
+      .mobile-nav.open {
+        display: block;
+      }
+      .mobile-nav ul {
+        list-style: none;
+      }
+      .mobile-nav a {
+        display: block;
+        padding: 0.75rem 0;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        border-bottom: 0.5px solid var(--color-border);
+        color: var(--color-text-primary);
+      }
+      .mobile-nav-controls {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding-top: 1rem;
+      }
+
+      /* ── HERO ───────────────────────────────────────────────── */
+      #home {
+        border-top: none;
+        padding-top: calc(var(--nav-height) + 5rem);
+        padding-bottom: 6rem;
+      }
+      .hero {
+        display: flex;
+        align-items: flex-start;
+        gap: 3rem;
+      }
+
+      .hero-photo {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        object-fit: cover;
+        flex-shrink: 0;
+        border: 0.5px solid var(--color-border);
+      }
+      .hero-avatar {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        background: var(--color-subtle);
+        border: 0.5px solid var(--color-border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        font-weight: 300;
+        color: var(--color-text-muted);
+        transition: var(--transition-theme);
+      }
+
+      .hero-name {
+        font-family: var(--font-display);
+        font-weight: 500;
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        margin-bottom: 0.4rem;
+        color: var(--color-text-primary);
+      }
+      .hero-title {
+        font-size: 14px;
+        color: var(--color-text-secondary);
+        margin-bottom: 0.2rem;
+      }
+      .hero-affil {
+        font-size: 14px;
+        color: var(--color-text-muted);
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-bio {
+        font-size: 14.5px;
+        line-height: 1.75;
+        color: var(--color-text-secondary);
+        margin-bottom: 1.5rem;
+      }
+      .hero-bio p {
+        margin-bottom: 0.6rem;
+      }
+      .hero-bio p:last-child {
+        margin-bottom: 0;
+      }
+      .hero-bio a {
+        color: var(--color-text-primary);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .hero-tagline {
+        font-family: var(--font-mono);
+        font-size: 12.5px;
+        color: var(--color-text-muted);
+        margin-bottom: 1.5rem;
+      }
+
+      .social-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        border-radius: var(--r-pill);
+        border: 0.5px solid var(--color-border);
+        font-size: 12.5px;
+        font-weight: 500;
+        color: var(--color-text-secondary);
+        background: transparent;
+        transition: all 0.18s ease;
+      }
+      .social-link:hover {
+        background: var(--color-subtle);
+        color: var(--color-text-primary);
+        transform: translateY(-1px);
+      }
+      .social-link svg {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+      }
+
+      /* ── CARDS / BADGES ─────────────────────────────────────── */
+      .badge {
+        font-family: var(--font-mono);
+        font-size: 10.5px;
+        font-weight: 500;
+        padding: 2px 8px;
+        border-radius: var(--r-badge);
+        white-space: nowrap;
+        flex-shrink: 0;
+        height: 20px;
+        line-height: 16px;
+        align-self: flex-start;
+      }
+      .badge-ongoing {
+        background: var(--color-status-ongoing-bg);
+        color: var(--color-status-ongoing-text);
+      }
+      .badge-done {
+        background: var(--color-status-done-bg);
+        color: var(--color-status-done-text);
+      }
+
+      /* ── RESEARCH ───────────────────────────────────────────── */
+      .research-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .card {
+        background: var(--color-surface);
+        border: 0.5px solid var(--color-border);
+        border-radius: var(--r-card);
+        padding: 1.25rem 1.5rem;
+        transition:
+          transform 0.18s ease-out,
+          border-color 0.18s ease,
+          background-color 0.25s ease;
+      }
+      .card:hover {
+        transform: translateY(-2px);
+        border-color: var(--color-text-muted);
+      }
+
+      .card-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.75rem;
+        margin-bottom: 0.6rem;
+      }
+      .card-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--color-text-primary);
+        line-height: 1.4;
+      }
+      .card-desc {
+        font-size: 13.5px;
+        color: var(--color-text-secondary);
+        line-height: 1.6;
+      }
+
+      .collab-block {
+        font-size: 14px;
+        color: var(--color-text-secondary);
+        line-height: 1.7;
+        padding: 1.25rem 1.5rem;
+        background: var(--color-subtle);
+        border-radius: var(--r-card);
+        border: 0.5px solid var(--color-border);
+        transition: var(--transition-theme);
+      }
+      .collab-block a {
+        color: var(--color-text-primary);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      /* ── PUBLICATIONS ───────────────────────────────────────── */
+      .pub-group {
+        margin-bottom: 2.5rem;
+      }
+      .pub-year {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--color-text-muted);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 0.5px solid var(--color-border);
+      }
+      .pub-list {
+        list-style: none;
+      }
+      .pub-entry {
+        display: flex;
+        gap: 0.75rem;
+        align-items: flex-start;
+        padding: 0.875rem 0;
+        border-bottom: 0.5px solid var(--color-border);
+      }
+      .pub-badge {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        font-weight: 600;
+        padding: 2px 6px;
+        border-radius: var(--r-badge);
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .pub-j {
+        background: var(--color-badge-j-bg);
+        color: var(--color-badge-j-text);
+      }
+      .pub-c {
+        background: var(--color-badge-c-bg);
+        color: var(--color-badge-c-text);
+      }
+
+      .pub-title {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--color-text-primary);
+        line-height: 1.5;
+        margin-bottom: 0.2rem;
+      }
+      .pub-venue {
+        font-size: 13px;
+        color: var(--color-text-secondary);
+        font-style: italic;
+        margin-bottom: 0.2rem;
+      }
+      .pub-authors {
+        font-size: 12.5px;
+        color: var(--color-text-muted);
+        margin-bottom: 0.35rem;
+      }
+      .pub-links {
+        display: flex;
+        gap: 0.35rem;
+        flex-wrap: wrap;
+      }
+
+      .pub-link {
+        font-family: var(--font-mono);
+        font-size: 10.5px;
+        font-weight: 500;
+        padding: 2px 8px;
+        border-radius: var(--r-pill);
+        border: 0.5px solid var(--color-border);
+        color: var(--color-text-secondary);
+        background: transparent;
+        transition: all 0.18s ease;
+      }
+      .pub-link:hover {
+        background: var(--color-subtle);
+        color: var(--color-text-primary);
+      }
+
+      .pub-note {
+        font-size: 13px;
+        color: var(--color-text-muted);
+        margin-top: 1.5rem;
+      }
+      .pub-note a {
+        color: var(--color-text-secondary);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      /* ── TEACHING ───────────────────────────────────────────── */
+      .course-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+      }
+      .course-level {
+        font-family: var(--font-mono);
+        font-size: 10.5px;
+        font-weight: 500;
+        color: var(--color-text-muted);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 0.3rem;
+      }
+      .course-name {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--color-text-primary);
+        margin-bottom: 0.2rem;
+      }
+      .course-terms {
+        font-family: var(--font-mono);
+        font-size: 11.5px;
+        color: var(--color-text-muted);
+      }
+
+      /* ── STUDENTS ───────────────────────────────────────────── */
+      .student-group {
+        margin-bottom: 2rem;
+      }
+      .student-group-label {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--color-text-muted);
+        margin-bottom: 0.75rem;
+      }
+      .student-list {
+        list-style: none;
+      }
+      .student-entry {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.8rem 0;
+        border-bottom: 0.5px solid var(--color-border);
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin-top: 5px;
+        transition: var(--transition-theme);
+      }
+      .dot-active {
+        background: var(--color-dot-active);
+      }
+      .dot-alumni {
+        background: var(--color-dot-alumni);
+      }
+      .s-name {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--color-text-primary);
+      }
+      .s-meta {
+        font-size: 13px;
+        color: var(--color-text-secondary);
+      }
+      .s-topic {
+        font-size: 13px;
+        color: var(--color-text-muted);
+        font-style: italic;
+      }
+
+      /* ── RESOURCES ──────────────────────────────────────────── */
+      .resource-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .resource-card {
+        background: var(--color-surface);
+        border: 0.5px solid var(--color-border);
+        border-radius: var(--r-card);
+        padding: 1.25rem 1.5rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        transition:
+          transform 0.18s ease-out,
+          border-color 0.18s ease,
+          background-color 0.25s ease;
+      }
+      .resource-card:hover {
+        transform: translateY(-2px);
+        border-color: var(--color-text-muted);
+      }
+      .resource-icon {
+        flex-shrink: 0;
+        margin-top: 2px;
+        color: var(--color-text-muted);
+      }
+      .resource-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+      .resource-name {
+        font-size: 14.5px;
+        font-weight: 600;
+        color: var(--color-text-primary);
+        margin-bottom: 0.2rem;
+      }
+      .resource-desc {
+        font-size: 13.5px;
+        color: var(--color-text-secondary);
+      }
+
+      /* ── CONTACT ────────────────────────────────────────────── */
+      .contact-card {
+        background: var(--color-surface);
+        border: 0.5px solid var(--color-border);
+        border-radius: var(--r-card);
+        padding: 2rem 2.5rem;
+        transition: var(--transition-theme);
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem 3rem;
+      }
+      .c-label {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--color-text-muted);
+        margin-bottom: 0.3rem;
+      }
+      .c-value {
+        font-size: 14px;
+        color: var(--color-text-primary);
+        line-height: 1.6;
+      }
+      .c-value a {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      /* ── FOOTER ─────────────────────────────────────────────── */
+      footer {
+        border-top: 0.5px solid var(--color-border);
+        padding: 2rem 0;
+        text-align: center;
+        font-size: 12.5px;
+        color: var(--color-text-muted);
+        transition: var(--transition-theme);
+      }
+      footer a {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        color: var(--color-text-muted);
+      }
+
+      /* ── SCROLL REVEAL ──────────────────────────────────────── */
+      @keyframes hero-in {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .hero {
+        animation: hero-in 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(12px);
+        transition:
+          opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .hero {
+          animation: none;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+
+      /* ── RESPONSIVE ─────────────────────────────────────────── */
+      @media (max-width: 700px) {
+        .nav-links,
+        .nav-controls {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+
+        section {
+          padding: 3.5rem 0;
+        }
+        #home {
+          padding-top: calc(var(--nav-height) + 3rem);
+          padding-bottom: 3.5rem;
+        }
+
+        .hero {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 1.5rem;
+        }
+        .hero-photo,
+        .hero-avatar {
+          width: 120px;
+          height: 120px;
+        }
+        .social-row {
+          justify-content: center;
+        }
+
+        .research-grid,
+        .course-grid {
+          grid-template-columns: 1fr;
+        }
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+        h2 {
+          margin-bottom: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ── NAVBAR ──────────────────────────────────────────────── -->
+    <nav class="nav" id="nav">
+      <div class="nav-inner">
+        <a href="#home" class="nav-brand">Paulo Silas</a>
+        <ul class="nav-links" id="nav-links">
+          <li>
+            <a href="#home" data-s="home"> <span data-en>Home</span> <span data-pt>Início</span></a>
+          </li>
+          <li>
+            <a href="#research" data-s="research"> <span data-en>Research</span> <span data-pt>Pesquisa</span></a>
+          </li>
+          <li>
+            <a href="#teaching" data-s="teaching"> <span data-en>Teaching</span> <span data-pt>Ensino</span></a>
+          </li>
+          <li>
+            <a href="#resources" data-s="resources"> <span data-en>Resources</span> <span data-pt>Recursos</span></a>
+          </li>
+          <li>
+            <a href="#students" data-s="students"> <span data-en>Students</span> <span data-pt>Orientandos</span></a>
+          </li>
+          <li>
+            <a href="#publications" data-s="publications"><span data-en>Publications</span><span data-pt>Publicações</span></a>
+          </li>
+          <li>
+            <a href="#contact" data-s="contact"> <span data-en>Contact</span> <span data-pt>Contato</span></a>
+          </li>
+        </ul>
+        <div class="nav-controls">
+          <div class="lang-pill">
+            <button id="btn-en" class="on" onclick="setLang('en')">EN</button>
+            <button id="btn-pt" onclick="setLang('pt')">PT</button>
+          </div>
+          <button class="icon-btn" id="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+            <svg
+              id="ico-sun"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="display: none"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+            <svg
+              id="ico-moon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </button>
+        </div>
+        <button class="icon-btn hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ── MOBILE NAV ───────────────────────────────────────────── -->
+    <div class="mobile-nav" id="mobile-nav">
+      <ul>
+        <li>
+          <a href="#home" onclick="closeMenu()"><span data-en>Home</span> <span data-pt>Início</span></a>
+        </li>
+        <li>
+          <a href="#research" onclick="closeMenu()"><span data-en>Research</span> <span data-pt>Pesquisa</span></a>
+        </li>
+        <li>
+          <a href="#teaching" onclick="closeMenu()"><span data-en>Teaching</span> <span data-pt>Ensino</span></a>
+        </li>
+        <li>
+          <a href="#resources" onclick="closeMenu()"><span data-en>Resources</span> <span data-pt>Recursos</span></a>
+        </li>
+        <li>
+          <a href="#students" onclick="closeMenu()"><span data-en>Students</span> <span data-pt>Orientandos</span></a>
+        </li>
+        <li>
+          <a href="#publications" onclick="closeMenu()"><span data-en>Publications</span><span data-pt>Publicações</span></a>
+        </li>
+        <li>
+          <a href="#contact" onclick="closeMenu()"><span data-en>Contact</span> <span data-pt>Contato</span></a>
+        </li>
+      </ul>
+      <div class="mobile-nav-controls">
+        <div class="lang-pill">
+          <button id="btn-en-m" class="on" onclick="setLang('en')">EN</button>
+          <button id="btn-pt-m" onclick="setLang('pt')">PT</button>
+        </div>
+        <button class="icon-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+          <svg
+            id="ico-sun-m"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="display: none"
+          >
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg
+            id="ico-moon-m"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <main>
+      <!-- ── HOME ────────────────────────────────────────────────── -->
+      <section id="home">
+        <div class="container">
+          <div class="hero">
+            <img
+              src="photo.jpg"
+              alt="Paulo Silas Severo de Souza"
+              class="hero-photo"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div class="hero-avatar" style="display: none">PS</div>
+
+            <div>
+              <h1 class="hero-name">Paulo Silas<br />Severo de Souza</h1>
+              <p class="hero-title">
+                <span data-en>Assistant Professor (Tenure-Track)</span>
+                <span data-pt>Professor Adjunto (Tenure-Track)</span>
+              </p>
+              <p class="hero-affil">Federal University of Pampa (UNIPAMPA) · Alegrete, RS, Brazil</p>
+
+              <div class="hero-bio" data-en-b>
+                <p>
+                  I am an Assistant Professor at UNIPAMPA (Alegrete, Brazil). My research focuses on resource management across Edge–Cloud
+                  Continuum environments and, more recently, on the intersection of these systems with Agentic AI.
+                </p>
+                <p>
+                  I completed my PhD at the Pontifical Catholic University of Rio Grande do Sul (PUCRS), advised by Prof. Tiago Ferreto and
+                  Prof. Rodrigo N. Calheiros. Over the years I have published 40+ papers in flagship venues (IEEE Communications Letters,
+                  Future Generation Computer Systems, ACM Computing Surveys, etc.) and serve regularly as a reviewer.
+                </p>
+                <p>
+                  I have a solid R&amp;D background with projects funded by FAPESP, FAPERGS, CPqD, and Dell. I am also the main developer of
+                  <a href="https://edgesimpy.github.io/" target="_blank" rel="noopener">EdgeSimPy</a>, a Python-based Edge Computing
+                  simulator used in research projects worldwide.
+                </p>
+              </div>
+              <div class="hero-bio" data-pt-b>
+                <p>
+                  Sou Professor Adjunto na UNIPAMPA (Alegrete, Brasil). Minha pesquisa concentra-se no gerenciamento de recursos em
+                  ambientes Edge–Cloud Continuum e, mais recentemente, na interseção desses sistemas com IA Agêntica.
+                </p>
+                <p>
+                  Concluí meu doutorado na PUCRS, sob orientação dos professores Tiago Ferreto e Rodrigo N. Calheiros. Ao longo dos anos
+                  publiquei mais de 40 artigos em veículos de prestígio (IEEE Communications Letters, Future Generation Computer Systems,
+                  ACM Computing Surveys, etc.) e atuo regularmente como revisor.
+                </p>
+                <p>
+                  Tenho sólida experiência em P&amp;D com projetos financiados por FAPESP, FAPERGS, CPqD e Dell. Sou também o principal
+                  desenvolvedor do <a href="https://edgesimpy.github.io/" target="_blank" rel="noopener">EdgeSimPy</a>, um simulador de Edge
+                  Computing baseado em Python utilizado em pesquisas ao redor do mundo.
+                </p>
+              </div>
+
+              <p class="hero-tagline">Edge–Cloud Continuum · Agentic AI · CS Education</p>
+
+              <div class="social-row">
+                <a
+                  href="https://scholar.google.com/citations?hl=en&user=2TIpYeoAAAAJ&view_op=list_works&sortby=pubdate"
+                  target="_blank"
+                  rel="noopener"
+                  class="social-link"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 10a8 8 0 0 1 7.162 3.44L24 9.5z" />
+                  </svg>
+                  Scholar
+                </a>
+                <a href="https://orcid.org/0000-0003-4945-3329" target="_blank" rel="noopener" class="social-link">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 3.925-1.444 3.925-3.722 0-2.016-1.284-3.722-3.619-3.722h-2.603z"
+                    />
+                  </svg>
+                  ORCID
+                </a>
+                <a href="https://www.linkedin.com/in/paulosevero/" target="_blank" rel="noopener" class="social-link">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    />
+                  </svg>
+                  LinkedIn
+                </a>
+                <a href="https://github.com/paulosevero" target="_blank" rel="noopener" class="social-link">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                    />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── RESEARCH ─────────────────────────────────────────────── -->
+      <section id="research">
+        <div class="container">
+          <h2><span data-en>Research</span><span data-pt>Pesquisa</span></h2>
+          <div class="research-grid">
+            <div class="card reveal">
+              <div class="card-head">
+                <span class="card-title"
+                  ><span data-en>Strategies for Managing Containerized Applications in Edge Computing Infrastructures</span
+                  ><span data-pt
+                    >Estratégias para Gerenciamento de Aplicações Conteinerizadas em Infraestruturas de Edge Computing</span
+                  ></span
+                >
+                <span class="badge badge-ongoing"><span data-en>Ongoing</span><span data-pt>Em andamento</span></span>
+              </div>
+              <p class="card-desc">
+                <span data-en
+                  >Developing placement and migration strategies for containerized applications across edge nodes to optimize latency,
+                  energy, and QoS. Coordinated at UNIPAMPA (2024–present).</span
+                ><span data-pt
+                  >Desenvolvimento de estratégias de alocação e migração de aplicações em contêineres em nós de borda para otimizar
+                  latência, energia e QoS. Coordenado na UNIPAMPA (2024–presente).</span
+                >
+              </p>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-head">
+                <span class="card-title"
+                  ><span data-en>Task Offloading Strategies in Industrial Edge Environments</span
+                  ><span data-pt>Estratégias de Offloading de Tarefas em Ambientes Industriais de Borda</span></span
+                >
+                <span class="badge badge-ongoing"><span data-en>Ongoing</span><span data-pt>Em andamento</span></span>
+              </div>
+              <p class="card-desc">
+                <span data-en
+                  >Investigating task offloading techniques for industrial IoT settings where latency and reliability are critical,
+                  balancing computation cost with communication overhead at the edge. Coordinated at UNIPAMPA (2024–present).</span
+                ><span data-pt
+                  >Investigação de técnicas de offloading de tarefas para ambientes IoT industriais, equilibrando custo computacional com
+                  sobrecarga de comunicação na borda. Coordenado na UNIPAMPA (2024–presente).</span
+                >
+              </p>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-head">
+                <span class="card-title"
+                  ><span data-en>Scalable Algorithms for Digital Twin-Assisted Network Orchestration</span
+                  ><span data-pt>Algoritmos Escaláveis para Orquestração de Redes Assistidas por Gêmeos Digitais</span></span
+                >
+                <span class="badge badge-done"><span data-en>Completed</span><span data-pt>Concluído</span></span>
+              </div>
+              <p class="card-desc">
+                <span data-en
+                  >Designed scalable optimization algorithms for orchestrating resources in digital twin-assisted network environments,
+                  addressing real-time synchronization and large-scale resource allocation (2023).</span
+                ><span data-pt
+                  >Projeto de algoritmos de otimização escaláveis para orquestração de recursos em redes assistidas por gêmeos digitais,
+                  abordando sincronização em tempo real e alocação em larga escala (2023).</span
+                >
+              </p>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-head">
+                <span class="card-title"
+                  ><span data-en>SLA Management for Cloud-Native Platform Services</span
+                  ><span data-pt>Gerenciamento de SLA para Serviços em Plataformas Cloud-Native</span></span
+                >
+                <span class="badge badge-done"><span data-en>Completed</span><span data-pt>Concluído</span></span>
+              </div>
+              <p class="card-desc">
+                <span data-en
+                  >Developed predictive ML models and elasticity techniques to prevent SLA violations in PCF/PKS cloud-native services,
+                  combining proactive anomaly detection with automated scaling (2019–2022).</span
+                ><span data-pt
+                  >Desenvolvimento de modelos de ML preditivos e técnicas de elasticidade para prevenir violações de SLA em serviços
+                  cloud-native (PCF/PKS), combinando detecção de anomalias com escalamento automático (2019–2022).</span
+                >
+              </p>
+            </div>
+          </div>
+          <div class="collab-block reveal">
+            <strong><span data-en>Collaboration interests:</span><span data-pt>Interesses de colaboração:</span></strong>
+            <span data-en>
+              Resource management for Edge–Cloud Continuum systems, Agentic AI applied to distributed infrastructure, and CS education
+              research. Feel free to reach out at <a href="mailto:paulosilas@unipampa.edu.br">paulosilas@unipampa.edu.br</a>.</span
+            >
+            <span data-pt>
+              Gerenciamento de recursos para sistemas Edge–Cloud Continuum, IA Agêntica aplicada a infraestruturas distribuídas e pesquisa
+              em Educação em Computação. Entre em contato pelo e-mail
+              <a href="mailto:paulosilas@unipampa.edu.br">paulosilas@unipampa.edu.br</a>.</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ── TEACHING ──────────────────────────────────────────────── -->
+      <section id="teaching">
+        <div class="container">
+          <h2><span data-en>Teaching</span><span data-pt>Ensino</span></h2>
+          <div class="course-grid">
+            <div class="card reveal">
+              <div class="course-level"><span data-en>Undergraduate</span><span data-pt>Graduação</span></div>
+              <div class="course-name"><span data-en>Distributed Systems</span><span data-pt>Sistemas Distribuídos</span></div>
+              <div class="course-terms">2024.1</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="course-level"><span data-en>Undergraduate</span><span data-pt>Graduação</span></div>
+              <div class="course-name">
+                <span data-en>Algorithm Design and Analysis</span><span data-pt>Projeto e Análise de Algoritmos</span>
+              </div>
+              <div class="course-terms">2024.2</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="course-level"><span data-en>Undergraduate</span><span data-pt>Graduação</span></div>
+              <div class="course-name"><span data-en>Theory of Computation</span><span data-pt>Teoria da Computação</span></div>
+              <div class="course-terms">2024.2 · 2025.2</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="course-level"><span data-en>Graduate</span><span data-pt>Pós-Graduação</span></div>
+              <div class="course-name">
+                <span data-en>Optimization and Algorithm Complexity</span><span data-pt>Otimização e Complexidade de Algoritmos</span>
+              </div>
+              <div class="course-terms">2024.1</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="course-level"><span data-en>Undergraduate</span><span data-pt>Graduação</span></div>
+              <div class="course-name"><span data-en>Algorithms and Programming</span><span data-pt>Algoritmos e Programação</span></div>
+              <div class="course-terms">2025.1</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="course-level"><span data-en>Graduate</span><span data-pt>Pós-Graduação</span></div>
+              <div class="course-name"><span data-en>Software Development</span><span data-pt>Desenvolvimento de Software</span></div>
+              <div class="course-terms">2025.2</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="course-level"><span data-en>Undergraduate</span><span data-pt>Graduação</span></div>
+              <div class="course-name">
+                <span data-en>Intelligent Software Engineering Projects Lab</span
+                ><span data-pt>Lab. de Projetos de Engenharia de Software Inteligente</span>
+              </div>
+              <div class="course-terms">2026.1</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="course-level"><span data-en>Undergraduate</span><span data-pt>Graduação</span></div>
+              <div class="course-name"><span data-en>Problem Solving III</span><span data-pt>Resolução de Problemas III</span></div>
+              <div class="course-terms">2024.1 · 2025.1 · 2026.1</div>
+            </div>
+
+            <div class="card reveal">
+              <div class="course-level"><span data-en>Undergraduate</span><span data-pt>Graduação</span></div>
+              <div class="course-name">
+                <span data-en>Programming Language Design</span><span data-pt>Projeto de Linguagens de Programação</span>
+              </div>
+              <div class="course-terms">2024.1</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── RESOURCES ─────────────────────────────────────────────── -->
+      <section id="resources">
+        <div class="container">
+          <h2><span data-en>Resources</span><span data-pt>Recursos</span></h2>
+          <div class="resource-list">
+            <a href="https://github.com/EdgeSimPy/EdgeSimPy" target="_blank" rel="noopener" class="resource-card reveal">
+              <span class="resource-icon"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  />
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                  <line x1="12" y1="22.08" x2="12" y2="12" /></svg
+              ></span>
+              <div>
+                <div class="resource-name">EdgeSimPy</div>
+                <div class="resource-desc">
+                  <span data-en>Python-based Edge Computing simulator for modeling and evaluating resource management policies.</span
+                  ><span data-pt
+                    >Simulador de Edge Computing baseado em Python para modelagem e avaliação de políticas de gerenciamento de
+                    recursos.</span
+                  >
+                </div>
+              </div>
+            </a>
+
+            <a href="https://github.com/paulosevero/maper" target="_blank" rel="noopener" class="resource-card reveal">
+              <span class="resource-icon"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  />
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                  <line x1="12" y1="22.08" x2="12" y2="12" /></svg
+              ></span>
+              <div>
+                <div class="resource-name">MAPER</div>
+                <div class="resource-desc">
+                  <span data-en>Mobility-Aware Power-Efficient Container Registry Migrations for Edge Computing Infrastructures.</span
+                  ><span data-pt
+                    >Migrações de registros de contêineres com eficiência energética e consciência de mobilidade para infraestruturas de
+                    Edge Computing.</span
+                  >
+                </div>
+              </div>
+            </a>
+
+            <a href="https://github.com/paulosevero/hermes" target="_blank" rel="noopener" class="resource-card reveal">
+              <span class="resource-icon"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  />
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                  <line x1="12" y1="22.08" x2="12" y2="12" /></svg
+              ></span>
+              <div>
+                <div class="resource-name">Hermes</div>
+                <div class="resource-desc">
+                  <span data-en>Containerization-aware edge server update strategies minimizing service disruption during maintenance.</span
+                  ><span data-pt
+                    >Estratégias de atualização de servidores de borda com consciência de conteinerização para minimizar interrupções
+                    durante manutenção.</span
+                  >
+                </div>
+              </div>
+            </a>
+
+            <a href="https://github.com/paulosevero/thea" target="_blank" rel="noopener" class="resource-card reveal">
+              <span class="resource-icon"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  />
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                  <line x1="12" y1="22.08" x2="12" y2="12" /></svg
+              ></span>
+              <div>
+                <div class="resource-name">Thea</div>
+                <div class="resource-desc">
+                  <span data-en>QoS, privacy, and power-aware algorithm for placing microservices on federated edge infrastructures.</span
+                  ><span data-pt
+                    >Algoritmo com consciência de QoS, privacidade e energia para alocação de microsserviços na borda federada.</span
+                  >
+                </div>
+              </div>
+            </a>
+
+            <a href="https://github.com/paulosevero/lamp_laxus" target="_blank" rel="noopener" class="resource-card reveal">
+              <span class="resource-icon"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  />
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                  <line x1="12" y1="22.08" x2="12" y2="12" /></svg
+              ></span>
+              <div>
+                <div class="resource-name">Lamp &amp; Laxus</div>
+                <div class="resource-desc">
+                  <span data-en>Location-aware maintenance strategies for edge computing infrastructures minimizing SLA violations.</span
+                  ><span data-pt
+                    >Estratégias de manutenção com consciência de localização para infraestruturas de Edge Computing, minimizando violações
+                    de SLA.</span
+                  >
+                </div>
+              </div>
+            </a>
+
+            <a href="https://github.com/paulosevero/argos" target="_blank" rel="noopener" class="resource-card reveal">
+              <span class="resource-icon"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  />
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                  <line x1="12" y1="22.08" x2="12" y2="12" /></svg
+              ></span>
+              <div>
+                <div class="resource-name">Argos</div>
+                <div class="resource-desc">
+                  <span data-en>Privacy-aware service migration strategy for edge computing environments with user mobility.</span
+                  ><span data-pt
+                    >Estratégia de migração de serviços com consciência de privacidade para ambientes de Edge Computing com mobilidade de
+                    usuários.</span
+                  >
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── STUDENTS ──────────────────────────────────────────────── -->
+      <section id="students">
+        <div class="container">
+          <h2><span data-en>Students</span><span data-pt>Orientandos</span></h2>
+
+          <div class="student-group">
+            <div class="student-group-label"><span data-en>Current Students</span><span data-pt>Alunos Atuais</span></div>
+            <ul class="student-list">
+              <li class="student-entry reveal">
+                <span class="dot dot-active"></span>
+                <div>
+                  <div class="s-name">Nicolas Flores Feijó</div>
+                  <div class="s-meta">
+                    <span data-en>BSc · Computer Engineering</span><span data-pt>Graduação · Engenharia de Computação</span>
+                  </div>
+                  <div class="s-topic">Lancer: A Multi-Objective Framework for Container Provisioning in the Edge-to-Cloud Continuum</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="student-group">
+            <div class="student-group-label"><span data-en>Alumni</span><span data-pt>Ex-Orientandos</span></div>
+            <ul class="student-list">
+              <li class="student-entry reveal">
+                <span class="dot dot-alumni"></span>
+                <div>
+                  <div class="s-meta" style="font-style: italic">
+                    <span data-en>No alumni records yet.</span>
+                    <span data-pt>Nenhum ex-orientando registrado ainda.</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── PUBLICATIONS ─────────────────────────────────────────── -->
+      <section id="publications">
+        <div class="container">
+          <h2><span data-en>Publications</span><span data-pt>Publicações</span></h2>
+
+          <div class="pub-group reveal">
+            <div class="pub-year">2026</div>
+            <ul class="pub-list">
+              <li class="pub-entry">
+                <span class="pub-badge pub-j">J</span>
+                <div>
+                  <p class="pub-title">The New Web Attack Surface: A Taxonomy of Semantic and Agentic Threats in AI Browsers</p>
+                  <p class="pub-venue">IEEE Access, 2026</p>
+                  <p class="pub-authors">
+                    Garcia, P. H. S.; Souza, P. S. S.; Luizelli, M. C.; Mombach, J. G.; Sachete, A. S.; Rossi, F. D.
+                  </p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1109/ACCESS.2026.3680147" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pub-group reveal">
+            <div class="pub-year">2025</div>
+            <ul class="pub-list">
+              <li class="pub-entry">
+                <span class="pub-badge pub-j">J</span>
+                <div>
+                  <p class="pub-title">
+                    Resource Allocation on Low-Earth Orbit Edge Infrastructure: Taxonomy, Survey, and Research Challenges
+                  </p>
+                  <p class="pub-venue">IEEE Access, 2025</p>
+                  <p class="pub-authors">Rossi, F. D.; Souza, P. S. S.; Luizelli, M. C.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1109/access.2025.3547571" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-j">J</span>
+                <div>
+                  <p class="pub-title">
+                    Theory Inspires, but Examples Engage: A Mixed-Methods Analysis of Worked Examples From CoderBot in Programming Education
+                  </p>
+                  <p class="pub-venue">IEEE Access, 2025</p>
+                  <p class="pub-authors">
+                    Garcia, R. S.; Villa, J. E. A.; Miranda, A. L. M.; Guedes, G. T. A.; Oran, A. C.; Souza, P. S. S.; Vilela, R. F.; Valle,
+                    P. H. D.; Silva, W.
+                  </p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1109/ACCESS.2025.3599357" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-j">J</span>
+                <div>
+                  <p class="pub-title">
+                    MAPER: Mobility-Aware Energy-Efficient Container Registry Migrations for Edge Computing Infrastructures
+                  </p>
+                  <p class="pub-venue">The Journal of Supercomputing, 2025</p>
+                  <p class="pub-authors">
+                    Temp, D. C.; Costa, A. A. F.; Vieira, A. N. C.; Oribes, E. S.; Lopes, I. M.; Souza, P. S. S.; Luizelli, M. C.; Lorenzon,
+                    A. F.; Rossi, F. D.
+                  </p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1007/s11227-024-06516-9" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">WFQ-Based SLA-Aware Edge Applications Provisioning</p>
+                  <p class="pub-venue">CLOSER, 2025</p>
+                  <p class="pub-authors">Garcia, P.; Lorenzon, A.; Luizelli, M.; Souza, P. S.; Rossi, F.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.5220/0013268000003950" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">
+                    Plataforma Codefólio: Uma Ferramenta para Potencializar o Aprendizado no Contexto do Ensino Híbrido
+                  </p>
+                  <p class="pub-venue">SBIE, 2025</p>
+                  <p class="pub-authors">
+                    Ciocca, M. M.; Ferreira, E. C.; Silva, G. B.; Quincozes, C. C. B.; Quincozes, S. E.; Souza, P. S. S.
+                  </p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.5753/sbie.2025.12881" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">
+                    Order, Unite, and Conquer: A Group Formulation for Multi-Armed Bandits in Microservice Provisioning
+                  </p>
+                  <p class="pub-venue">Euromicro PDP, 2025</p>
+                  <p class="pub-authors">
+                    Labres, J. V. B.; Souza, P. S. S.; Moreira, D. V. L.; Silva, P. R. B.; Paiva, M. B.; Alves, E. C.; Azevedo, L. M.
+                  </p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1109/pdp66500.2025.00017" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pub-group reveal">
+            <div class="pub-year">2024</div>
+            <ul class="pub-list">
+              <li class="pub-entry">
+                <span class="pub-badge pub-j">J</span>
+                <div>
+                  <p class="pub-title">
+                    Maintenance Operations on Cloud, Edge, and IoT Environments: Taxonomy, Survey, and Research Challenges
+                  </p>
+                  <p class="pub-venue">ACM Computing Surveys, 2024</p>
+                  <p class="pub-authors">Souza, P.; Ferreto, T.; Calheiros, R.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1145/3659097" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">Microservice Provisioning in the Edge-to-Cloud Continuum using Multi-Agent Multi-Armed Bandits</p>
+                  <p class="pub-venue">IEEE CloudNet, 2024</p>
+                  <p class="pub-authors">
+                    Labres, J. V. B.; Souza, P. S. S.; Moreira, D. V. L.; Silva, P. R. B.; Alves, E. C.; Azevedo, L. M.
+                  </p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1109/cloudnet62863.2024.10815840" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">DigiNet: Scaling up Provisioning of Network Digital Twin</p>
+                  <p class="pub-venue">IEEE NetSoft, 2024</p>
+                  <p class="pub-authors">
+                    Luizelli, M. C.; Vogt, F. G.; Souza, P. S. S.; Lorenzon, A. F.; Costa Filho, R. I. T.; Rossi, F. D.; Calheiros, R. N.;
+                    Rothenberg, C. E.
+                  </p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1109/netsoft60951.2024.10588932" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">An ANN-Guided Multi-Objective Framework for Power-Performance Balancing in HPC Systems</p>
+                  <p class="pub-venue">ACM SAC, 2024</p>
+                  <p class="pub-authors">Maas, W.; Souza, P. S. S.; Luizelli, M. C.; Rossi, F. D.; Navaux, P. O. A.; Lorenzon, A. F.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1145/3649153.3649185" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">Spinner: Enabling In-network Flow Clustering Entirely in a Programmable Data Plane</p>
+                  <p class="pub-venue">IEEE NOMS, 2024</p>
+                  <p class="pub-authors">
+                    Cannarozzo, L.; Morais, T. B.; Souza, P. S. S.; Gobatto, L. R.; Lamb, I. P.; Duarte, P. A. P. R.; Azambuja, J. R. F.;
+                    Lorenzon, A. F.; Rossi, F. D.; Cordeiro, W. et al.
+                  </p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1109/noms59830.2024.10575413" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pub-group reveal">
+            <div class="pub-year">2023</div>
+            <ul class="pub-list">
+              <li class="pub-entry">
+                <span class="pub-badge pub-j">J</span>
+                <div>
+                  <p class="pub-title">EdgeSimPy: Python-based Modeling and Simulation of Edge Computing Resource Management Policies</p>
+                  <p class="pub-venue">Future Generation Computer Systems, 2023</p>
+                  <p class="pub-authors">Souza, P. S.; Ferreto, T.; Calheiros, R. N.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1016/j.future.2023.06.013" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-j">J</span>
+                <div>
+                  <p class="pub-title">
+                    Mobility-Aware Registry Migration for Containerized Applications on Edge Computing Infrastructures
+                  </p>
+                  <p class="pub-venue">Journal of Network and Computer Applications, 2023</p>
+                  <p class="pub-authors">Temp, D. C.; Souza, P. S. S.; Lorenzon, A. F.; Luizelli, M. C.; Rossi, F. D.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1016/j.jnca.2023.103676" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">Latency-Aware Cost-Efficient Provisioning of Composite Applications in Multi-Provider Clouds</p>
+                  <p class="pub-venue">CLOSER, 2023</p>
+                  <p class="pub-authors">Temp, D.; Capeletti, I.; Castro, A. G.; Souza, P. S.; Lorenzon, A.; Luizelli, M.; Rossi, F.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.5220/0011995600003488" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">Towards Optimizing the Edge-to-Cloud Continuum Resource Allocation</p>
+                  <p class="pub-venue">CLOSER, 2023</p>
+                  <p class="pub-authors">Capeletti, I.; Castro, A. G.; Temp, D.; Souza, P. S.; Lorenzon, A.; Rossi, F.; Luizelli, M.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.5220/0011995700003488" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">Thea — A QoS, Privacy, and Power-Aware Algorithm for Placing Applications on Federated Edges</p>
+                  <p class="pub-venue">Euromicro PDP, 2023</p>
+                  <p class="pub-authors">Souza, P.; Kayser, C.; Roges, L.; Ferreto, T.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1109/pdp59025.2023.00028" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">Reducing Power Consumption during Server Maintenance on Edge Computing Infrastructures</p>
+                  <p class="pub-venue">ACM SAC, 2023</p>
+                  <p class="pub-authors">Rubin, F.; Souza, P.; Ferreto, T.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1145/3555776.3577739" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pub-group reveal">
+            <div class="pub-year">2022</div>
+            <ul class="pub-list">
+              <li class="pub-entry">
+                <span class="pub-badge pub-j">J</span>
+                <div>
+                  <p class="pub-title">Location-Aware Maintenance Strategies for Edge Computing Infrastructures</p>
+                  <p class="pub-venue">IEEE Communications Letters, 2022</p>
+                  <p class="pub-authors">Souza, P. S.; Ferreto, T. C.; Rossi, F. D.; Calheiros, R. N.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1109/LCOMM.2022.3150243" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">Latency-aware Privacy-preserving Service Migration in Federated Edges</p>
+                  <p class="pub-venue">CLOSER, 2022</p>
+                  <p class="pub-authors">Souza, P.; Crestani, Â.; Rubin, F.; Ferreto, T.; Rossi, F.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.5220/0011084500003200" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">Multivariate Interpolation at the Edge to Infer Faulty IoT Sensor Metrics</p>
+                  <p class="pub-venue">CLOSER, 2022</p>
+                  <p class="pub-authors">
+                    Konzen, M.; Izolan, P.; Griesang, F.; Souza, P.; Ferreto, T.; Lorenzon, A.; Luizelli, M.; Mattos, J. B.; Rosa, C. E.;
+                    Rossi, F.
+                  </p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.5220/0011084100003200" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">
+                    Predicting and Avoiding SLA Violations of Containerized Applications using Machine Learning and Elasticity
+                  </p>
+                  <p class="pub-venue">CLOSER, 2022</p>
+                  <p class="pub-authors">Souza, P.; Neves, M.; Kayser, C.; Rubin, F.; Boeira, C.; Moreira, J.; Bordin, B.; Ferreto, T.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.5220/0011085100003200" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pub-group reveal">
+            <div class="pub-year">2021</div>
+            <ul class="pub-list">
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">
+                    Enforcing Deployment Latency SLA in Edge Infrastructures through Multi-Objective Genetic Scheduler
+                  </p>
+                  <p class="pub-venue">IEEE/ACM UCC, 2021</p>
+                  <p class="pub-authors">Knob, L. A. D.; Kayser, C. H.; Souza, P. S. S.; Ferreto, T.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1145/3468737.3494100" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pub-group reveal">
+            <div class="pub-year">2020</div>
+            <ul class="pub-list">
+              <li class="pub-entry">
+                <span class="pub-badge pub-j">J</span>
+                <div>
+                  <p class="pub-title">Detecting Abnormal Sensors via Machine Learning: An IoT Farming WSN-Based Architecture Case Study</p>
+                  <p class="pub-venue">Measurement, 2020</p>
+                  <p class="pub-authors">
+                    Souza, P. S. S.; Rubin, F. P.; Hohemberger, R.; Ferreto, T. C.; Lorenzon, A. F.; Luizelli, M. C.; Rossi, F. D.
+                  </p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1016/j.measurement.2020.108042" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-j">J</span>
+                <div>
+                  <p class="pub-title">An Approach to Mitigate Challenges to the Electronic Health Records Storage</p>
+                  <p class="pub-venue">Measurement, 2020</p>
+                  <p class="pub-authors">
+                    Hohemberger, R.; Rosa, C. E.; Pfeifer, F. R.; Rosa, R. M.; Souza, P. S. S.; Lorenzon, A. F.; Luizelli, M. C.; Rossi, F.
+                    D.
+                  </p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1016/j.measurement.2019.107424" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">
+                    IRENE: Interference and High Availability Aware Microservice-based Applications Placement for Edge Computing
+                  </p>
+                  <p class="pub-venue">CLOSER, 2020</p>
+                  <p class="pub-authors">Souza, P.; Nascimento, J.; Boeira, C.; Vieira, Â.; Rubin, F.; Reis, R.; Rossi, F.; Ferreto, T.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.5220/0009581604900497" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">ISABEL: Infrastructure-Agnostic Benchmark Framework for Cloud-Native Platforms</p>
+                  <p class="pub-venue">CLOSER, 2020</p>
+                  <p class="pub-authors">Souza, P.; Rubin, F.; Nascimento, J.; Boeira, C.; Vieira, Â.; Reis, R.; Ferreto, T.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.5220/0009581004820489" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">Evaluating Energy and Thermal Efficiency of Anomaly Detection Algorithms in Edge Devices</p>
+                  <p class="pub-venue">ICOIN, 2020</p>
+                  <p class="pub-authors">Rubin, F. P.; Souza, P. S. S.; Marques, W. S.; Oliveira, R. R.; Rossi, F. D.; Ferreto, T.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1109/icoin48656.2020.9016420" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">
+                    SABER: An Infrastructure-Agnostic Benchmark Tool for Elasticity Evaluation on Cloud Foundry Based Platforms
+                  </p>
+                  <p class="pub-venue">ICOIN, 2020</p>
+                  <p class="pub-authors">Marques, W.; Rubin, F.; Souza, P.; Oliveira, R.; Ferreto, T.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1109/icoin48656.2020.9016485" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pub-group reveal">
+            <div class="pub-year">2019</div>
+            <ul class="pub-list">
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">
+                    Towards Balancing Energy Savings and Performance for Volunteer Computing through Virtualized Approach
+                  </p>
+                  <p class="pub-venue">CLOSER, 2019</p>
+                  <p class="pub-authors">Rossi, F. D.; Ferreto, T.; Conterato, M.; Souza, P.; Marques, W.; Calheiros, R.; Rodrigues, G.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.5220/0007733304220429" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">IAGREE: Infrastructure-Agnostic Resilience Benchmark Tool for Cloud Native Platforms</p>
+                  <p class="pub-venue">CLOSER, 2019</p>
+                  <p class="pub-authors">Souza, P.; Marques, W.; Reis, R.; Ferreto, T.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.5220/0007728503960403" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">
+                    Improving the Trade-Off between Performance and Energy Saving in Mobile Devices through a Transparent Code Offloading
+                    Technique
+                  </p>
+                  <p class="pub-venue">CLOSER, 2019</p>
+                  <p class="pub-authors">Reis, R.; Souza, P.; Marques, W.; Ferreto, T.; Rossi, F.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.5220/0007719703470354" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">An Approach for Children's Emergent Literacy Adaptive Activities</p>
+                  <p class="pub-venue">SBIE, 2019</p>
+                  <p class="pub-authors">Mombach, J. G.; Souza, P. S. S.; Soares, F. A. M. N.; Rossi, F. D.; Ferreto, T. C.; Leal, L.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.5753/cbie.sbie.2019.489" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">GAMED: Gamification-Based Assessment Methodology for Final Project Development</p>
+                  <p class="pub-venue">IEEE ICALT, 2019</p>
+                  <p class="pub-authors">Souza, P.; Mombach, J.; Rossi, F.; Ferreto, T.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1109/icalt.2019.00114" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">On the Integrated Professional Practice in a Computing Course Towards Innovation</p>
+                  <p class="pub-venue">IEEE ICALT, 2019</p>
+                  <p class="pub-authors">Rossi, F.; Souza, P.; Mombach, J.; Ferreto, T.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1109/icalt.2019.00075" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">Multilevel Resource Allocation for Performance-Aware Energy-Efficient Cloud Data Centers</p>
+                  <p class="pub-venue">IEEE ISCC, 2019</p>
+                  <p class="pub-authors">
+                    Rossi, F. D.; Souza, P. S. S.; Marques, W. S.; Conterato, M. S.; Ferreto, T. C.; Lorenzon, A. F.; Luizelli, M. C.
+                  </p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1109/iscc47284.2019.8969751" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">The Impact of Parallel Programming Interfaces on the Aging of a Multicore Embedded Processor</p>
+                  <p class="pub-venue">IEEE ISCAS, 2019</p>
+                  <p class="pub-authors">
+                    Vieira, A. N. C.; Nonaka, J.; Souza, P. S. S.; Marques, W. S.; Conterato, M. S.; Ferreto, T. C.; Luizelli, M. C.;
+                    Lorenzon, A. F.; Beck Filho, A. C. S.; Rossi, F. D.
+                  </p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1109/iscas.2019.8702116" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">
+                    Reducing Energy Consumption in SDN-Based Data Center Networks through Flow Consolidation Strategies
+                  </p>
+                  <p class="pub-venue">ACM SAC, 2019</p>
+                  <p class="pub-authors">Conterato, M. S.; Ferreto, T. C.; Rossi, F.; Marques, W. S.; Souza, P. S. S.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1145/3297280.3297420" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pub-group reveal">
+            <div class="pub-year">2018</div>
+            <ul class="pub-list">
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">Evaluating Container-Based Virtualization Overhead on the General-Purpose IoT Platform</p>
+                  <p class="pub-venue">IEEE ISCC, 2018</p>
+                  <p class="pub-authors">
+                    Marques, W. S.; Souza, P. S. S.; Rossi, F. D.; Rodrigues, G. C.; Calheiros, R. N.; Conterato, M. S.; Ferreto, T. C.
+                  </p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1109/iscc.2018.8538602" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">Performance-Aware Energy-Efficient Processes Grouping for Embedded Platforms</p>
+                  <p class="pub-venue">IEEE ISCC, 2018</p>
+                  <p class="pub-authors">Souza, P. S. S.; Marques, W. S.; Conterato, M. S.; Ferreto, T. C.; Rossi, F. D.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1109/iscc.2018.8538753" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pub-group reveal">
+            <div class="pub-year">2017</div>
+            <ul class="pub-list">
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">Performance and Accuracy Trade-Off Analysis of Techniques for Anomaly Detection in IoT Sensors</p>
+                  <p class="pub-venue">ICOIN, 2017</p>
+                  <p class="pub-authors">Souza, P. S. S.; Marques, W. S.; Rossi, F. D.; Rodrigues, G. C.; Calheiros, R. N.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1109/icoin.2017.7899541" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">
+                    Towards an Educational Platform with Real-Time Collaboration and Monitoring of Students Achievement
+                  </p>
+                  <p class="pub-venue">SBSC, 2017</p>
+                  <p class="pub-authors">Souza, P. S. S.; Marques, W. S.; Mombach, J. G.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.5753/sbsc.2017.9950" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+              <li class="pub-entry">
+                <span class="pub-badge pub-c">C</span>
+                <div>
+                  <p class="pub-title">Improving EDP in Multi-Core Embedded Systems through Multidimensional Frequency Scaling</p>
+                  <p class="pub-venue">IEEE ISCAS, 2017</p>
+                  <p class="pub-authors">Marques, W. S.; Souza, P. S. S.; Lorenzon, A. F.; Beck, A. C. S.; Rutzig, M. B.; Rossi, F. D.</p>
+                  <div class="pub-links">
+                    <a href="https://doi.org/10.1109/iscas.2017.8050515" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <p class="pub-note reveal">
+            <span data-en
+              >Manually maintained. For a complete list see my
+              <a
+                href="https://scholar.google.com/citations?hl=en&user=2TIpYeoAAAAJ&view_op=list_works&sortby=pubdate"
+                target="_blank"
+                rel="noopener"
+                >Google Scholar profile</a
+              >. &nbsp;<strong>J</strong> = Journal &nbsp;<strong>C</strong> = Conference.</span
+            >
+            <span data-pt
+              >Mantida manualmente. Lista completa no
+              <a
+                href="https://scholar.google.com/citations?hl=en&user=2TIpYeoAAAAJ&view_op=list_works&sortby=pubdate"
+                target="_blank"
+                rel="noopener"
+                >Google Scholar</a
+              >. &nbsp;<strong>J</strong> = Periódico &nbsp;<strong>C</strong> = Conferência.</span
+            >
+          </p>
+        </div>
+      </section>
+
+      <!-- ── CONTACT ───────────────────────────────────────────────── -->
+      <section id="contact">
+        <div class="container">
+          <h2><span data-en>Contact</span><span data-pt>Contato</span></h2>
+          <div class="contact-card reveal">
+            <div class="contact-grid">
+              <div>
+                <div class="c-label">Email</div>
+                <div class="c-value"><a href="mailto:paulosilas@unipampa.edu.br">paulosilas@unipampa.edu.br</a></div>
+              </div>
+              <div>
+                <div class="c-label"><span data-en>Office</span><span data-pt>Sala</span></div>
+                <div class="c-value"><span data-en>Room 320, Building A1</span><span data-pt>Sala 320, Prédio A1</span></div>
+              </div>
+              <div>
+                <div class="c-label"><span data-en>Institution</span><span data-pt>Instituição</span></div>
+                <div class="c-value">Federal University of Pampa (UNIPAMPA)</div>
+              </div>
+              <div>
+                <div class="c-label">Campus</div>
+                <div class="c-value">
+                  <span data-en>Alegrete Campus · CEP 97546-550<br />Alegrete, RS, Brazil</span>
+                  <span data-pt>Campus Alegrete · CEP 97546-550<br />Alegrete, RS, Brasil</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>
+          &copy; 2026 Paulo Silas Severo de Souza &middot;
+          <span data-en
+            >Built with HTML/CSS &middot; Hosted on
+            <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a></span
+          >
+          <span data-pt
+            >Feito com HTML/CSS &middot; Hospedado no
+            <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a></span
+          >
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // ── THEME ───────────────────────────────────────────────────
+      const html = document.documentElement;
+      let dark = html.dataset.theme === "dark";
+
+      function syncThemeIcons() {
+        ["ico-sun", "ico-sun-m"].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.style.display = dark ? "" : "none";
+        });
+        ["ico-moon", "ico-moon-m"].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.style.display = dark ? "none" : "";
+        });
+      }
+      syncThemeIcons();
+
+      function toggleTheme() {
+        dark = !dark;
+        html.dataset.theme = dark ? "dark" : "light";
+        localStorage.setItem("theme", dark ? "dark" : "light");
+        syncThemeIcons();
+      }
+
+      // ── LANGUAGE ────────────────────────────────────────────────
+      const body = document.body;
+      let lang = localStorage.getItem("lang") || "en";
+
+      function syncLangBtns() {
+        ["btn-en", "btn-en-m"].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.classList.toggle("on", lang === "en");
+        });
+        ["btn-pt", "btn-pt-m"].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.classList.toggle("on", lang === "pt");
+        });
+      }
+
+      function setLang(l) {
+        lang = l;
+        body.classList.toggle("pt", l === "pt");
+        html.lang = l === "pt" ? "pt-BR" : "en";
+        localStorage.setItem("lang", l);
+        syncLangBtns();
+      }
+      setLang(lang);
+
+      // ── NAVBAR SCROLL ───────────────────────────────────────────
+      const nav = document.getElementById("nav");
+      window.addEventListener(
+        "scroll",
+        () => {
+          nav.classList.toggle("scrolled", scrollY > 40);
+        },
+        { passive: true },
+      );
+
+      // ── ACTIVE NAV ──────────────────────────────────────────────
+      const navLinks = document.querySelectorAll(".nav-links a[data-s]");
+      const sectObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              const id = e.target.id;
+              navLinks.forEach((a) => a.classList.toggle("active", a.dataset.s === id));
+            }
+          });
+        },
+        { rootMargin: "-40% 0px -50% 0px" },
+      );
+      document.querySelectorAll("section[id]").forEach((s) => sectObs.observe(s));
+
+      // ── HAMBURGER ───────────────────────────────────────────────
+      const mobileNav = document.getElementById("mobile-nav");
+      function toggleMenu() {
+        mobileNav.classList.toggle("open");
+      }
+      function closeMenu() {
+        mobileNav.classList.remove("open");
+      }
+      document.addEventListener("click", (e) => {
+        if (mobileNav.classList.contains("open") && !mobileNav.contains(e.target) && e.target.id !== "hamburger") closeMenu();
+      });
+
+      // ── SCROLL REVEAL ───────────────────────────────────────────
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const revObs = new IntersectionObserver(
+          (entries) => {
+            const visible = entries.filter((e) => e.isIntersecting);
+            visible.forEach((e, i) => {
+              setTimeout(() => e.target.classList.add("in"), i * 60);
+              revObs.unobserve(e.target);
+            });
+          },
+          { threshold: 0.08 },
+        );
+        document.querySelectorAll(".reveal").forEach((el) => revObs.observe(el));
+      } else {
+        document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
+      }
+    </script>
+  </body>
+</html>
